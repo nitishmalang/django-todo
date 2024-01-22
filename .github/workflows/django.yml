@@ -24,6 +24,12 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
+    - name: Install Dependencies
+      run: |
+        cd $GITHUB_WORKSPACE  # Switch to the repository's root directory
+        python -m pip install --upgrade pip
+        python -m pip install django  # Install Django
+
     - name: Run Tests
       run: |
         cd $GITHUB_WORKSPACE  # Switch to the repository's root directory
